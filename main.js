@@ -1,7 +1,7 @@
 // mixed messages random generator
 
 // random generated character names of Mass Effect
-const randomSquadMember = () => {
+const randomSquadMemberAndEnemy = () => {
   const characterNames = [
     "Commander Shepard",
     "Jacob Taylor",
@@ -41,4 +41,22 @@ const randomSquadMember = () => {
     "Maya Brooks",
     "The Kett",
   ];
+
 };
+
+// generate random number interval <1,number>
+const randomNumber = (number) => {
+  if(typeof number !== 'number') {
+    console.log('Bad input argument!');
+    return;
+  }
+
+  if( number < 1) {
+    console.log('Input number cannot be less then 1');
+    return;
+  }
+
+
+  let randomNumber = Math.floor(Math.random() * number + 1);
+  return randomNumber;
+}
