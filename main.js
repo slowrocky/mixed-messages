@@ -42,21 +42,34 @@ const randomSquadMemberAndEnemy = () => {
     "The Kett",
   ];
 
+  const firstSquadMember = characterNames[randomNumber(characterNames.length)];
+  let secondSquadMember = characterNames[randomNumber(characterNames.length)];
+  while (firstSquadMember === secondSquadMember) {
+    secondSquadMember = characterNames[randomNumber(characterNames.length)];
+  }
+  const enemy = randomEnemy[randomNumber(randomEnemy.length)];
+
+  const randomGeneratedSentence = `Your squad members for fight against ${enemy} will be ${firstSquadMember} and ${secondSquadMember}.`;
+
+  return randomGeneratedSentence;
 };
 
 // generate random number interval <1,number>
 const randomNumber = (number) => {
-  if(typeof number !== 'number') {
-    console.log('Bad input argument!');
+  if (typeof number !== "number") {
+    console.log("Bad input argument!");
     return;
   }
 
-  if( number < 1) {
-    console.log('Input number cannot be less then 1');
+  if (number < 1) {
+    console.log("Input number cannot be less then 1");
     return;
   }
 
-
-  let randomNumber = Math.floor(Math.random() * number + 1);
+  let randomNumber = Math.floor(Math.random() * (number - 1));
   return randomNumber;
-}
+};
+
+let test = [1, 2, 3, 4, 5, 6];
+
+console.log(randomNumber(test.length));
