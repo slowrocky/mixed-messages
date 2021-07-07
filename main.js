@@ -42,6 +42,17 @@ const randomSquadMemberAndEnemy = () => {
     "The Kett",
   ];
 
+  /*
+  const squadAndEnemy = {
+    firstSquadMember: "",
+    secondSquadMember: "",
+    enemy: "",
+
+    setSentence() {
+      return `Your squad members for fight against \'${this.enemy}\' will be \'${this.firstSquadMember}\' and \'${this.secondSquadMember}\'.`;
+    },
+  };
+*/
   const firstSquadMember = characterNames[randomNumber(characterNames.length)];
   let secondSquadMember = characterNames[randomNumber(characterNames.length)];
   while (firstSquadMember === secondSquadMember) {
@@ -49,7 +60,7 @@ const randomSquadMemberAndEnemy = () => {
   }
   const enemy = randomEnemy[randomNumber(randomEnemy.length)];
 
-  const randomGeneratedSentence = `Your squad members for fight against ${enemy} will be ${firstSquadMember} and ${secondSquadMember}.`;
+  const randomGeneratedSentence = `Your squad members for fight against \'${enemy}\' will be \'${firstSquadMember}\' and \'${secondSquadMember}\'.`;
 
   return randomGeneratedSentence;
 };
@@ -70,6 +81,6 @@ const randomNumber = (number) => {
   return randomNumber;
 };
 
-let test = [1, 2, 3, 4, 5, 6];
-
-console.log(randomNumber(test.length));
+for (let i = 0; i <= 10; i++) {
+  console.log(randomSquadMemberAndEnemy());
+}
