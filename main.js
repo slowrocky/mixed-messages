@@ -62,7 +62,21 @@ const randomSquadMemberAndEnemy = () => {
     },
 
     setSentence() {
-      this.sentence = `Your squad members to fight against \'${this.enemy}\' will be \'${this.firstSquadMember}\' and \'${this.secondSquadMember}\'.`;
+      const random = Math.floor(Math.random() * 2);
+      switch(random) {
+        case 0:
+          this.sentence = `Your squad members to fight against \'${this.enemy}\' will be \'${this.firstSquadMember}\' and \'${this.secondSquadMember}\'.`;
+          break;
+        case 1:
+          this.sentence = `Your squad members \'${this.firstSquadMember}\' and \'${this.secondSquadMember}\' are scared of our enemy \'${this.enemy}\'. Their health and damage is reduce by 50%.`;
+          break;
+        case 2:
+          this.sentence = `Your squad members \'${this.firstSquadMember}\' and \'${this.secondSquadMember}\' aren\'t scared of our enemy \'${this.enemy}\'. Their health and damage is increased by 25%.`;
+          break;
+        default:
+          this.sentence = `Something is not quite right.`;
+          break;
+      }
     },
   };
 
@@ -89,4 +103,4 @@ const randomNumber = (number) => {
 };
 
 
-console.log(randomSquadMemberAndEnemy());
+console.log(randomSquadMemberAndEnemy().sentence);
