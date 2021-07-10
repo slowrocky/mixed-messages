@@ -62,7 +62,7 @@ const randomSquadMemberAndEnemy = () => {
     },
 
     setSentence() {
-      const random = Math.floor(Math.random() * 2);
+      const random = Math.floor(Math.random() * 3);
       switch(random) {
         case 0:
           this.sentence = `Your squad members to fight against \'${this.enemy}\' will be \'${this.firstSquadMember}\' and \'${this.secondSquadMember}\'.`;
