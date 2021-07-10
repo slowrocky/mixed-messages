@@ -1,6 +1,7 @@
 // mixed messages random generator
 
 // random generated character names of Mass Effect
+// create object squadAndEnemy with methods
 const randomSquadMemberAndEnemy = () => {
   const characterNames = [
     "Commander Shepard",
@@ -42,27 +43,33 @@ const randomSquadMemberAndEnemy = () => {
     "The Kett",
   ];
 
-  /*
   const squadAndEnemy = {
     firstSquadMember: "",
     secondSquadMember: "",
     enemy: "",
+    sentence: "",
+
+    create() {
+      this.firstSquadMember =
+        characterNames[randomNumber(characterNames.length)];
+      this.secondSquadMember =
+        characterNames[randomNumber(characterNames.length)];
+      this.enemy = randomEnemy[randomNumber(randomEnemy.length)];
+      while (this.firstSquadMember === this.secondSquadMember) {
+        this.secondSquadMember =
+          characterNames[randomNumber(characterNames.length)];
+      }
+    },
 
     setSentence() {
-      return `Your squad members for fight against \'${this.enemy}\' will be \'${this.firstSquadMember}\' and \'${this.secondSquadMember}\'.`;
+      this.sentence = `Your squad members to fight against \'${this.enemy}\' will be \'${this.firstSquadMember}\' and \'${this.secondSquadMember}\'.`;
     },
   };
-*/
-  const firstSquadMember = characterNames[randomNumber(characterNames.length)];
-  let secondSquadMember = characterNames[randomNumber(characterNames.length)];
-  while (firstSquadMember === secondSquadMember) {
-    secondSquadMember = characterNames[randomNumber(characterNames.length)];
-  }
-  const enemy = randomEnemy[randomNumber(randomEnemy.length)];
 
-  const randomGeneratedSentence = `Your squad members for fight against \'${enemy}\' will be \'${firstSquadMember}\' and \'${secondSquadMember}\'.`;
+  squadAndEnemy.create();
+  squadAndEnemy.setSentence();
 
-  return randomGeneratedSentence;
+  return squadAndEnemy;
 };
 
 // generate random number interval <1,number>
@@ -81,6 +88,5 @@ const randomNumber = (number) => {
   return randomNumber;
 };
 
-for (let i = 0; i <= 10; i++) {
-  console.log(randomSquadMemberAndEnemy());
-}
+
+console.log(randomSquadMemberAndEnemy());
